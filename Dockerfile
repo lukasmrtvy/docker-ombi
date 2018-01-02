@@ -11,12 +11,12 @@ ENV XDG_CONFIG_HOME /config/
 
 RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP}  && \
     apk add --no-cache --update curl libcurl tar mono tzdata --update-cache --repository http://alpine.gliderlabs.com/alpine/edge/testing/ --allow-untrusted  && \
-    mkdir -p /opt/ombi /config/ombi && curl -sL https://github.com/tidusjar/Ombi/releases/download/v${OMBI_VERSION}/Ombi.zip -O /tmp/Ombi.zip ; unzip /tmp/Ombi.zip -d /opt/ombi && \
+    mkdir -p /opt/ombi /config/ombi && curl -sL https://github.com/tidusjar/Ombi/releases/download/v${OMBI_VERSION}/Ombi.zip -o /tmp/Ombi.zip ; unzip /tmp/Ombi.zip -d /opt/ombi && \
     chown -R ${USER}:${GROUP} /config/ /opt/ombi/ && \
     rm -rf /tmp/* && \
     apk del curl tar
    
-EXPOSE 9117 
+EXPOSE 5000
 
 WORKDIR /opt/
 
