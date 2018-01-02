@@ -26,4 +26,4 @@ USER ${USER}
 
 RUN ls -lha /opt/ombi 
 
-ENTRYPOINT ["mono", "jackett/JackettConsole.exe"]
+ENTRYPOINT ["mono", "ombi/Ombi.exe"]
