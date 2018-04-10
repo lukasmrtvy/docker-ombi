@@ -24,6 +24,6 @@ VOLUME /config/ombi
 
 USER ${USER}
 
-ENTRYPOINT ["mono", "Ombi.exe"]
+ENTRYPOINT ["mono", "./Ombi.exe"]
 
 
