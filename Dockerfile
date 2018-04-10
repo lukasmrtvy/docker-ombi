@@ -18,14 +18,12 @@ RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP}  
    
 EXPOSE 5000
 
-WORKDIR /opt/
+WORKDIR /opt/ombi/
 
 VOLUME /config/ombi
 
 USER ${USER}
 
-RUN ls -lha /opt/ombi 
-
-ENTRYPOINT ["mono", "ombi/Ombi.exe"]
+ENTRYPOINT ["mono", "Ombi.exe"]
 
 
