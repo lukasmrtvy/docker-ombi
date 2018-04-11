@@ -9,7 +9,7 @@ ENV OMBI_VERSION 3.0.3164
 
 ENV XDG_CONFIG_HOME /config/
 
-RUN groupadd -r -g ${GID} ${GROUP} && adduser --disabled-password --uid ${UID} --ingroup ${GROUP} --gecos '' ${USER} \
+RUN groupadd -r -g ${GID} ${GROUP} && adduser --disabled-password --uid ${UID} --ingroup ${GROUP} --gecos '' ${USER} && \
     apt-get update && apt-get install -y curl tar tzdata  --no-install-recommends
     
 RUN apt-get install -y libicu-dev libunwind8 libcurl4-openssl-dev  --no-install-recommends
