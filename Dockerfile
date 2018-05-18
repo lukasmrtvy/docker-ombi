@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:17.10
 
 ENV UID 1000
 ENV GID 1000
@@ -17,10 +17,6 @@ RUN groupadd -r -g ${GID} ${GROUP} && adduser --disabled-password --uid ${UID} -
     
 RUN apt install -y libicu-dev libunwind8 libcurl4-openssl-dev --no-install-recommends
 
-# workaround
-RUN  apt-get download libssl1.0-dev && dpkg-deb -X libssl1.0-dev_1.0.2n-1ubuntu5_amd64.deb && rm -rf libssl1.0-dev_1.0.2n-1ubuntu5_amd64.deb
-
-    
 RUN mkdir -p /opt/ombi /config/ombi && curl -sSL https://github.com/tidusjar/Ombi/releases/download/v${OMBI_VERSION}/linux.tar.gz  | tar xz -C /opt/ombi  && \
     chown -R ${USER}:${GROUP} /config/ /opt/ombi/ && \
     rm -rf /tmp/*  
