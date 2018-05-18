@@ -15,7 +15,7 @@ ENV XDG_CONFIG_HOME /config/
 RUN groupadd -r -g ${GID} ${GROUP} && adduser --disabled-password --uid ${UID} --ingroup ${GROUP} --gecos '' ${USER} && \
     apt update && apt install -y curl tar ca-certificates tzdata  --no-install-recommends
     
-RUN apt install -y libicu-dev libunwind8 libcurl4-openssl-dev  --no-install-recommends
+RUN apt install -y libicu-dev libunwind8 libcurl4-openssl-dev libssl1.0.0 --no-install-recommends
     
 RUN mkdir -p /opt/ombi /config/ombi && curl -sSL https://github.com/tidusjar/Ombi/releases/download/v${OMBI_VERSION}/linux.tar.gz  | tar xz -C /opt/ombi  && \
     chown -R ${USER}:${GROUP} /config/ /opt/ombi/ && \
