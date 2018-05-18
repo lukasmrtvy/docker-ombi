@@ -8,7 +8,7 @@ ENV GROUP htpc
 ENV OMBI_VERSION 3.0.3330
 
 LABEL VERSION=${OMBI_VERSION}
-LABEL BUILD_DATE=$(date --iso-8601=seconds)
+LABEL BUILD_DATE="$(date --iso-8601=seconds)"
 
 ENV XDG_CONFIG_HOME /config/
 
