@@ -7,9 +7,6 @@ ENV GROUP htpc
 
 ENV OMBI_VERSION 3.0.3330
 
-LABEL VERSION=${OMBI_VERSION}
-LABEL BUILD_DATE="$(date --iso-8601=seconds)"
-
 ENV XDG_CONFIG_HOME /config/
 
 RUN groupadd -r -g ${GID} ${GROUP} && adduser --disabled-password --uid ${UID} --ingroup ${GROUP} --gecos '' ${USER} && \
@@ -28,5 +25,9 @@ WORKDIR /opt/ombi/
 VOLUME /config/ombi
 
 USER ${USER}
+
+LABEL VERSION=${OMBI_VERSION}
+LABEL BUILD_DATE="$(date --iso-8601=seconds)"
+LABEL url=https://github.com/tidusjar/Ombi
 
 ENTRYPOINT ["./Ombi"]
